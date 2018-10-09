@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -31,6 +33,14 @@ namespace AspNetCoreExample
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // If nginx or other reverse proxy is on another machine, we need to register 
+            // proxy IP addresses.
+            //
+            //services.Configure<ForwardedHeadersOptions>(options =>
+            //{
+            //    options.KnownProxies.Add(IPAddress.Parse("1.2.3.4"));
+            //});
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -44,6 +54,13 @@ namespace AspNetCoreExample
             }
             else
             {
+                // this should run before most other middleware. It especially must run before anything
+                // that depends on it, like authentication or link generation.
+                app.UseForwardedHeaders(new ForwardedHeadersOptions
+                {
+                    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+                });
+                
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
