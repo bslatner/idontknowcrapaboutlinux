@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0E4BF9B2-5422-4E41-8383-6C7427507865}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreExample", "src\AspNetCoreExample\AspNetCoreExample.csproj", "{B435059C-CD25-4105-A816-443EF67A38CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreExample", "src\AspNetCoreExample\AspNetCoreExample.csproj", "{B435059C-CD25-4105-A816-443EF67A38CC}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B435059C-CD25-4105-A816-443EF67A38CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -32,8 +31,26 @@ Global
 		{B435059C-CD25-4105-A816-443EF67A38CC}.Release|x64.Build.0 = Release|Any CPU
 		{B435059C-CD25-4105-A816-443EF67A38CC}.Release|x86.ActiveCfg = Release|Any CPU
 		{B435059C-CD25-4105-A816-443EF67A38CC}.Release|x86.Build.0 = Release|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Debug|x64.Build.0 = Debug|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Debug|x86.Build.0 = Debug|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Release|x64.ActiveCfg = Release|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Release|x64.Build.0 = Release|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Release|x86.ActiveCfg = Release|Any CPU
+		{F544F3ED-7ABD-4BCC-BB35-81B35ED61DC4}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B435059C-CD25-4105-A816-443EF67A38CC} = {0E4BF9B2-5422-4E41-8383-6C7427507865}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8D31373-59A1-4A3A-9D48-63F63F33CD8D}
 	EndGlobalSection
 EndGlobal
