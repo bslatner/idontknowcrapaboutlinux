@@ -14,6 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cheatsheet", "cheatsheet", "{0C4F5E2A-4052-4BCF-AAD4-487BE93411E7}"
+	ProjectSection(SolutionItems) = preProject
+		cheatsheet\cheatsheet.md = cheatsheet\cheatsheet.md
+		cheatsheet\helloworld-docker.service = cheatsheet\helloworld-docker.service
+		cheatsheet\helloworld.service = cheatsheet\helloworld.service
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +61,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B435059C-CD25-4105-A816-443EF67A38CC} = {0E4BF9B2-5422-4E41-8383-6C7427507865}
+		{0C4F5E2A-4052-4BCF-AAD4-487BE93411E7} = {32A7BCDE-33FC-462E-94B7-26D6213EB38E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B8D31373-59A1-4A3A-9D48-63F63F33CD8D}

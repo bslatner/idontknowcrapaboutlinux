@@ -1,0 +1,17 @@
+[Unit]
+Description=Hello World From ASP.NET Core
+
+[Service]
+WorkingDirectory=/var/aspnetcore/helloworld
+ExecStart=/usr/bin/dotnet /var/aspnetcore/helloworld/AspNetCoreExample.dll
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=dotnet-helloworld
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Development
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
