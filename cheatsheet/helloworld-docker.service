@@ -1,17 +1,27 @@
+# Largely based on the example from mosquito found here:
+# https://github.com/docker/compose/issues/4266
+
 [Unit]
 Description=Hello World From ASP.NET Core on Docker
+Requires=docker.service
+After=docker.service
 
 [Service]
-WorkingDirectory=/var/aspnetcore/helloworld-docker
-ExecStart=/usr/local/bin/docker-compose up
 Restart=always
-# Restart service after 10 seconds if the dotnet service crashes:
-RestartSec=10
-KillSignal=SIGINT
-SyslogIdentifier=dotnet-helloworld-docker
-User=www-data
-Environment=ASPNETCORE_ENVIRONMENT=Development
-Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+WorkingDirectory=/var/aspnetcore/helloworld-docker
+
+# Remove old containers, images and volumes
+ExecStartPre=/usr/bin/docker-compose down -v
+ExecStartPre=/usr/bin/docker-compose rm -fv
+ExecStartPre=-/bin/bash -c 'docker volume ls -qf "name=%i_" | xargs docker volume rm'
+ExecStartPre=-/bin/bash -c 'docker network ls -qf "name=%i_" | xargs docker network rm'
+ExecStartPre=-/bin/bash -c 'docker ps -aqf "name=%i_*" | xargs docker rm'
+
+# Compose up
+ExecStart=/usr/local/bin/docker-compose up
+
+# Compose down, remove containers and volumes
+ExecStop=/usr/bin/docker-compose down -v
 
 [Install]
 WantedBy=multi-user.target
