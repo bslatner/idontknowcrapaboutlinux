@@ -208,3 +208,16 @@ Now let's start the service and verify that it's running:
 sudo systemctl start helloworld-docker.service
 sudo systemctl status helloworld-docker.service
 ```
+
+Once the service is running, you should be able to browse from your Windows machine to
+port 80 on the virtual machine. We're almost done!
+
+Final steps:
+
+* Edit `C:\Windows\System32\drivers\etc\hosts` and add a mapping for www.contoso.com to your VM's IP address (see above where we used `ifconfig` to get it)
+* Open your browser and browse to `http://www.contoso.com`
+* If all goes well, you should see the example app in your browser.
+
+## The End
+
+Really. It is.
