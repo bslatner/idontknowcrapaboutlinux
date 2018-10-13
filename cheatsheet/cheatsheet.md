@@ -110,6 +110,9 @@ Clone this repository, which contains the ASP.NET app we're going to be working 
 git clone https://github.com/bslatner/idontknowcrapaboutlinux.git
 ```
 
+*NOTE*: All instructions from here on out assume that this repo has been cloned to
+`~/idontknowcrapaboutlinux`.
+
 Now you should be able to run the example.
 
 ```bash
@@ -162,8 +165,7 @@ sudo apt install nginx
 ```
 
 This project contains a file `nginx-config`. Copy it over top of the default
-nginx config file. Assuming you've cloned this repo to `~/idontknowcrapaboutlinux`,
-you would type
+nginx config file. Type:
 
 ```bash
 cp ~/idontknowcrapaboutlinux/cheatsheet/nginx-config /etc/nginx/sites-available/default
@@ -175,4 +177,34 @@ to localhost:37230, which is the port we expose with docker.
 
 ## Run our docker app as a service
 
-This project contains 
+This project contains a file called `helloworld-docker.service`. We want to register
+that with `systemctl`. Copy that into the list of services like so:
+
+```bash
+cp ~/idontknowcrapaboutlinux/cheatsheet/helloworld-docker.service /etc/systemd/system
+```
+
+Enable the service:
+
+```bash
+sudo systemctl enable helloworld-docker.service
+```
+
+Before we start the service up, we have to build it. This project includes a simple script to do that. To run it:
+
+```bash
+cd ~/idontknowcrapaboutlinux/cheatsheet
+chmod +x *.sh
+./copy-helloworld-docker.sh
+```
+
+The above *builds* but does not *run* the docker-compose app we used earlier. It copies
+the .yml files that docker-compose needs to `/var/aspnetcore/helloworld-docker`, which
+is where the service we created expects to find them.
+
+Now let's start the service and verify that it's running:
+
+```bash
+sudo systemctl start helloworld-docker.service
+sudo systemctl status helloworld-docker.service
+```
