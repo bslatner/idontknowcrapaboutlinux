@@ -20,6 +20,7 @@ they are an exercise for you.
 * bash - you need to know your shell
 * sed
 * python - It's extremely useful, and it's available in all Linux distros
-* vim - You exit it by pressing :q and then enter. You're welcome.
+* nano - Because you're going to have to edit something before you learn vim.
+* vim - You exit it by pressing typing :q and then enter. You're welcome.
 * mc - A Norton Commander style file manager
 
