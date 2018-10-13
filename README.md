@@ -1,9 +1,14 @@
 # From "I Don't Know Crap About Linux"
 # To Running ASP.NET Core in 60 Minutes
 
+## Software You Need
+
+* [PuTTY](https://www.putty.org/)
+* [WinSCP](https://winscp.net/eng/download.php)
+
 ## Cheat Sheet
 
-I've created a [cheat sheet](cheetsheet/cheetsheat.md) that describes each step in the process.
+I've created a [cheat sheet](cheatsheet/cheatsheat.md) that describes each step in the process.
 It should get you through your initial setup without too much trouble.
 
 ## Linux Commands you Need to Know
