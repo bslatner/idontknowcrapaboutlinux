@@ -33,6 +33,14 @@ step is to...
 
 And keep it open. We're going to live there for a while.
 
+## Install git
+
+Install git by typing:
+
+```bash
+sudo apt install git
+```
+
 ## Install SSH
 
 Install the SSH server by typing:
@@ -101,3 +109,70 @@ Clone this repository, which contains the ASP.NET app we're going to be working 
 ```bash
 git clone https://github.com/bslatner/idontknowcrapaboutlinux.git
 ```
+
+Now you should be able to run the example.
+
+```bash
+cd idontknowcrapaboutlinux/src/AspNetCoreExample
+dotnet run
+```
+
+If all goes well, you should be able to open Firefox *on the virtual machine's desktop*
+and browse to `http://localhost:5000`.
+
+Press Ctrl+C to terminate the demo.
+
+## Install docker and docker-compose
+
+Ultimately, we want to run our code in a container. We need docker for that. 
+
+You can find thorough instructions for this at [https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04) but we're just going to hit the highlights here.
+
+To install, type:
+
+```bash
+apt install docker
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo apt install docker-compose
+sudo usermod -aG docker ${USER}
+```
+
+We need to log out and back in again to make sure the permission change in the last
+line above takes effect. So, log out, log back in, then test the containerized version of our app:
+
+```bash
+cd ~/idontknowcrapaboutlinux
+docker-compose up
+```
+
+If all goes well, you should be able to open Firefox *on the virtual machine's desktop*
+and browse to `http://localhost:5000`.
+
+## Install and configure nginx
+
+Install the nginx server:
+
+```bash
+sudo apt install nginx
+```
+
+This project contains a file `nginx-config`. Copy it over top of the default
+nginx config file. Assuming you've cloned this repo to `~/idontknowcrapaboutlinux`,
+you would type
+
+```bash
+cp ~/idontknowcrapaboutlinux/cheatsheet/nginx-config /etc/nginx/sites-available/default
+sudo service nginx reload
+```
+
+The configuration we've loaded tells nginx to redirect port 80 (regular HTTP traffic) 
+to localhost:37230, which is the port we expose with docker.
+
+## Run our docker app as a service
+
+This project contains 
