@@ -29,3 +29,7 @@ they are an exercise for you.
 * vim - You exit it by pressing typing :q and then enter. You're welcome.
 * mc - A Norton Commander style file manager
 
+## Links You Might Find Useful
+
+* [Install .NET Core on Ubuntu 18.04](https://www.microsoft.com/net/download/linux-package-manager/ubuntu18-04/sdk-current)
+* [Hosting .NET Core on nginx](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/linux-nginx?view=aspnetcore-2.1&tabs=aspnetcore2x)
