@@ -8,8 +8,7 @@
 
 ## Cheat Sheet
 
-I've created a [cheat sheet](cheatsheet/cheatsheat.md) that describes each step in the process.
-It should get you through your initial setup without too much trouble.
+I've created a [cheat sheet](blob/master/cheatsheet/cheatsheet.md) that describes each step in the process. It should get you through your initial setup without too much trouble.
 
 ## Linux Commands you Need to Know
 
