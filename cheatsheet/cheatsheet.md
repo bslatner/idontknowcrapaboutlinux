@@ -8,10 +8,11 @@ Let's get started.
 
 ## Install Ubuntu
 
-These instructions assume you're installing Ubunu 18.04 "Bionic Beaver".
+These instructions assume you're installing Ubuntu 18.04 "Bionic Beaver".
 
 Start by [downloading Ubuntu](https://www.ubuntu.com/download). In the talk, I used the
-desktop version, but there's no reason you can't use the server version.
+desktop version, but there's no reason you can't use the server version. It might even
+be a better choice, especially if you want to focus on CLI stuff.
 
 Open Hyper-V and create a new VM using the ISO file you just downloaded. Make sure you choose
 "Generation 2" when prompted to "Choose the generation for the new virtual machine". Choose
@@ -26,20 +27,15 @@ begin the installation:
 ```powershell
 Set-VMFirmware -vmname "the name of your VM" -EnableSecureBoot off
 ```
+
+NOTE: When installing on a UEFI system these [UEFI Tips](https://help.ubuntu.com/community/UEFI) might come in handy.
+
 Once Ubuntu is installed, and you reboot, set up your credentials, etc., the next
 step is to...
 
 ## Open a Terminal
 
-And keep it open. We're going to live there for a while.
-
-## Install git
-
-Install git by typing:
-
-```bash
-sudo apt install git
-```
+And keep it open. We're going to live there for a while. Terminal is life.
 
 ## Install SSH
 
@@ -51,7 +47,7 @@ sudo apt install openssh-server
 
 It's possible you may see an error message related to `/var/lib/dpkg/lock`. This is normal
 after a fresh installation. Wait a little bit and try again. The message will eventually
-go away.
+go away; it means some Ubuntu maintenance processes are using the package database.
 
 There are many config options for SSH, but for our purposes, the defaults are all
 fine. They'll allow us to connect with PuTTY or WinSCP.
@@ -84,8 +80,25 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
-Get your IP address. Then switch back to Windows and use PuTTY or WinSCP to try to connect
+NOTE: You may also use these commands to get your interfaces' addresses.
+
+```bash
+ip addr
+```
+
+Write down your IP address. Then switch back to Windows and use PuTTY or WinSCP to try to connect
 to that IP address.
+
+
+## Install git
+
+Install git by typing:
+
+```bash
+sudo apt install git
+```
+
+NOTE: If you get tired of being asked "Yes/No", you can add the '-y' switch to apt arguments.
 
 ## Install the .NET Core 2.1 SDK
 
@@ -111,12 +124,12 @@ git clone https://github.com/bslatner/idontknowcrapaboutlinux.git
 ```
 
 *NOTE*: All instructions from here on out assume that this repo has been cloned to
-`~/idontknowcrapaboutlinux`.
+the default location of `~/idontknowcrapaboutlinux`.
 
 Now you should be able to run the example.
 
 ```bash
-cd idontknowcrapaboutlinux/src/AspNetCoreExample
+cd ~/idontknowcrapaboutlinux/src/AspNetCoreExample
 dotnet run
 ```
 
@@ -134,7 +147,6 @@ You can find thorough instructions for this at [https://www.digitalocean.com/com
 To install, type:
 
 ```bash
-apt install docker
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
@@ -221,3 +233,4 @@ Final steps:
 ## The End
 
 Really. It is.
+
